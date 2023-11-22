@@ -37,14 +37,16 @@ void predict( FILE *tracefile, int *table )
     {
         //printf("\n%llx\t%c", addy, takenstat );
 
-        index = ( addy ^ ( GBH << (m - n) ) ) & ( (1 << m) - 1 );
+        //index = ( addy ^ ( GBH << (m - n) ) ) & ( (1 << m) - 1 );
+
+        index = ((addy >> 2) & ((1 << m) - 1)) ^ (GBH << (m - n));
 
         if( table[index] >= 2 )
         {
             prediction = 1;
         }
 
-        else//if() table[index] <2 )
+        else//if() table[index] < 2 )
         {
             prediction = 0;
         }
@@ -155,7 +157,7 @@ int main( int noi, char **inputs)
         printf("\n%d", table[i] );
     }*/
     
-    printf("\nMispred ratio: %lf", misspred / totalpred );
+    printf("\nMispred ratio: %lf%%", 100 * misspred / totalpred );
 }
 
 //------------------------------------------------------------------
