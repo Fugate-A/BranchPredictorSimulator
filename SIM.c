@@ -84,7 +84,14 @@ void predict( FILE *tracefile, int *table )
             }
         }
 
-        GBH = ( (GBH << 1) | taken ) & ( ( 1 << n ) - 1 );
+        //GBH = ( (GBH << 1) | taken ) & ( ( 1 << n ) - 1 );
+
+        GBH = GBH >> 1;
+
+        if( taken == true )
+        {
+            GBH = GBH | ( 1 << ( n - 1 ) );
+        }
 
     }
 }
@@ -157,7 +164,7 @@ int main( int noi, char **inputs)
         printf("\n%d", table[i] );
     }*/
     
-    printf("\nMispred ratio: %lf%%", 100 * misspred / totalpred );
+    printf("\nMispred ratio: %.2lf%%", 100 * misspred / totalpred );
 }
 
 //------------------------------------------------------------------
