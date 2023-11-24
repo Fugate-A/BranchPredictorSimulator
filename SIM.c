@@ -88,7 +88,7 @@ void predict( FILE *tracefile, int *table )
 
         GBH = GBH >> 1;
 
-        if( taken == true )
+        if( taken == true && n != 0 )
         {
             GBH = GBH | ( 1 << ( n - 1 ) );
         }
