@@ -7,6 +7,9 @@
 #include <math.h>
 
 //------------------------------------------------------------------
+/*
+    Global Variable
+*/
 
 int m;
 int n;
@@ -19,7 +22,13 @@ unsigned int GBH = 0;
 bool taken;
 
 //------------------------------------------------------------------
-
+/*
+    Runs the branch predictor. Accepts trace file and 
+    preset-to-2 table. Table is passed by reference so
+    the data is reflected back into main, where it was 
+    declared. Returns nothing for return type because it
+    updates global counter variables. 
+*/
 void predict( FILE *tracefile, int *table )
 {
     int prediction;
@@ -86,7 +95,13 @@ void predict( FILE *tracefile, int *table )
 }
 
 //------------------------------------------------------------------
-
+/*
+    Main function. Accepts command line inputs of <M> <N> and <tracefile>.
+    Returns int to confirm program ran or exited for error. Parses information
+    from command line into approriapte places, checks that input conditions 
+    are ok to continue, opens trace file, presets table and determines size,
+    calls the predict function, closes file, prints results.
+*/
 int main( int noi, char **inputs)
 {
     char *tracefilepath;
@@ -141,4 +156,14 @@ int main( int noi, char **inputs)
 }
 
 //------------------------------------------------------------------
+/*
+  End of file
 
+  Current to 11-24-2023
+
+  UCF - Computer Architecture - Suboh Suboh
+  Project 2 - Branch Predictor Simulator
+
+  Andrew Fugate
+*/
+//------------------------------------------------------------------
