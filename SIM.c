@@ -20,10 +20,6 @@ bool taken;
 
 //------------------------------------------------------------------
 
-
-
-//------------------------------------------------------------------
-
 void predict( FILE *tracefile, int *table )
 {
     int prediction;
@@ -35,10 +31,6 @@ void predict( FILE *tracefile, int *table )
 
     while( fscanf( tracefile, "%llx %c", &addy, &takenstat ) != EOF )
     {
-        //printf("\n%llx\t%c", addy, takenstat );
-
-        //index = ( addy ^ ( GBH << (m - n) ) ) & ( (1 << m) - 1 );
-
         index = ((addy >> 2) & ((1 << m) - 1)) ^ (GBH << (m - n));
 
         if( table[index] >= 2 )
@@ -46,7 +38,7 @@ void predict( FILE *tracefile, int *table )
             prediction = 1;
         }
 
-        else//if() table[index] < 2 )
+        else
         {
             prediction = 0;
         }
@@ -56,7 +48,7 @@ void predict( FILE *tracefile, int *table )
             taken = true;
         }
 
-        else//if( takenstat == 'n' )
+        else
         {
             taken = false;
         }
@@ -84,15 +76,12 @@ void predict( FILE *tracefile, int *table )
             }
         }
 
-        //GBH = ( (GBH << 1) | taken ) & ( ( 1 << n ) - 1 );
-
         GBH = GBH >> 1;
 
         if( taken == true && n != 0 )
         {
             GBH = GBH | ( 1 << ( n - 1 ) );
         }
-
     }
 }
 
@@ -122,12 +111,6 @@ int main( int noi, char **inputs)
         return 1;
     }
 
-    /*if( n > m )
-    {
-        printf("Invalid input. N should not be greater than M; please try again");
-        return 1;
-    }*/
-
     FILE *tracefile = fopen(tracefilepath, "r");
     
     if( tracefile == NULL )
@@ -135,8 +118,6 @@ int main( int noi, char **inputs)
         printf("No file found in this location or could not open file");
         return 1;
     }
-
-    //printf("m: %d\tn: %d", m, n);
 
     int powervalue = 2;
 
@@ -150,27 +131,14 @@ int main( int noi, char **inputs)
     for( int i = 0; i < powervalue; i++ )
     {
         table[i] = 2;
-        //printf("\nrow %d", i);
     }
-
-    //printf("\nlargest index: %d\npowervalue: %d", powervalue-1, powervalue);
 
     predict( tracefile, table );
 
     fclose( tracefile );
-
-    /*for( int i = 0; i < powervalue; i++ )
-    {
-        printf("\n%d", table[i] );
-    }*/
     
-    printf("\nMispred ratio: %.2lf%%", 100 * misspred / totalpred );
+    printf("\nM: %d\tN: %d\tMisprediction Ratio: %.2lf%%\n\n", m, n, 100 * misspred / totalpred );
 }
 
 //------------------------------------------------------------------
 
-
-
-//------------------------------------------------------------------
-
-//------------------------------------------------------------------
