@@ -1,0 +1,61 @@
+---------------------------------------------------------------
+---------------------------------------------------------------
+Testing command line inputs:
+---------------------------------------------------------------
+---------------------------------------------------------------
+Validation Run 1:
+	mcf_trace.txt:
+		./sim.exe 8 5 mcf_trace.txt	x
+	gobmk_trace.txt:
+		./sim.exe 8 5 gobmk_trace.txt	x
+---------------------------------------------------------------
+Validation Run 2:
+	mcf_trace.txt:
+		./sim.exe 4 2 mcf_trace.txt	x
+	gobmk_trace.txt:
+		./sim.exe 4 2 gobmk_trace.txt	x
+---------------------------------------------------------------
+Validation Run 3:
+	mcf_trace.txt:
+		./sim.exe 3 1 mcf_trace.txt	x
+	gobmk_trace.txt:
+		./sim.exe 3 1 gobmk_trace.txt	x
+---------------------------------------------------------------
+---------------------------------------------------------------
+Report Case A:
+	mcf_trace.txt:
+		./sim.exe 4 1 mcf_trace.txt	x
+		./sim.exe 4 2 mcf_trace.txt	x
+		./sim.exe 4 3 mcf_trace.txt	x
+		./sim.exe 4 4 mcf_trace.txt	x
+	gobmk_trace.txt:
+		./sim.exe 4 1 gobmk_trace.txt	x
+		./sim.exe 4 2 gobmk_trace.txt	x
+		./sim.exe 4 3 gobmk_trace.txt	x
+		./sim.exe 4 4 gobmk_trace.txt	x
+---------------------------------------------------------------
+Report Case B:
+	mcf_trace.txt:
+		./sim.exe 4 4 mcf_trace.txt	x
+		./sim.exe 5 4 mcf_trace.txt	x
+		./sim.exe 6 4 mcf_trace.txt	x
+		./sim.exe 7 4 mcf_trace.txt	x
+	gobmk_trace.txt:
+		./sim.exe 4 4 gobmk_trace.txt	x
+		./sim.exe 5 4 gobmk_trace.txt	x
+		./sim.exe 6 4 gobmk_trace.txt	x
+		./sim.exe 7 4 gobmk_trace.txt	x
+---------------------------------------------------------------
+Report Case C:
+	mcf_trace.txt:
+		./sim.exe 4 0 mcf_trace.txt	x
+		./sim.exe 5 0 mcf_trace.txt	x
+		./sim.exe 6 0 mcf_trace.txt	x
+		./sim.exe 7 0 mcf_trace.txt	x
+	gobmk_trace.txt:
+		./sim.exe 4 0 gobmk_trace.txt	x
+		./sim.exe 5 0 gobmk_trace.txt	x
+		./sim.exe 6 0 gobmk_trace.txt	x
+		./sim.exe 7 0 gobmk_trace.txt	x
+---------------------------------------------------------------
+---------------------------------------------------------------
