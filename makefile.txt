@@ -1,0 +1,55 @@
+----------------------------------------------------------------------------------------------------------------------------------
+To compile this code you can use the following instructions and commands:
+
+In visual studio code (VSC) using terminal:
+
+    compile with:
+        gcc SIM.c -o SIM.exe
+
+    run this command in the directory of the .c file
+    
+    the portion "SIM.exe" in the command will generate 
+    the executable file with whatever name is there, ie SIM.exe
+
+    to simulate run the inputs in the following format:
+        <.exe file> <M> <N> <tracefile>
+        ./sim.exe 7 0 gobmk_trace.txt
+        
+        **note: this is assuming that you are in the directory of the .exe
+                file and that the trace files are also present there.
+                If this is not true, please replace the <tracefile> with
+                the path to the trace file, ie <C:\path\to\trace\file>
+
+    to run other scenarios, please adjust the command appropriatly.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+in windows command prompt:
+    
+    commands are very similar to VSC terminal commands but vary slightly. The commands are structered the same but use a slightly different file name system to execute
+
+    to compile:
+        uses the same command as above:
+        
+            gcc -o sim.exe sim.c
+
+    to execute cases:
+        use almost identical command as above but just use file name for the .exe   -   use " sim.exe " intead of " ./sim.exe "
+
+        <directory of .exe> sim.exe 7 1 <location>\gobmk_trace.txt>
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+FOr Mac OS or Linux:
+    These instructions and code are written for windows 10 using VSC and using the gcc compiler.
+    
+    This would need to be compiled as your system allows and ran using different commands that 
+    will not be provided here. In general though, most enviroments operate with the same work flow
+    and you should be able to see the process and "follow along" on your system. 
+
+    Obviosly the .c code does not change, but getting it to run using a terminal, and accessing files 
+    may be system and platform dependent.
+
+----------------------------------------------------------------------------------------------------------------------------------
+updated: November 24, 2023 - Andrew Fugate
+----------------------------------------------------------------------------------------------------------------------------------
